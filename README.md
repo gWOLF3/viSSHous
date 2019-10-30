@@ -17,9 +17,9 @@ From local machine:
 sh local.sh
 ```
 
-```
-ssh <remote-server> < remote.sh
-```
+#### What's Next? 
+
+I plan to turn this into an optional system daemon, which will watch for chages to your .vimrc file, and inturn update your viSSHous config which gets passed whenever you ssh. The idea is to passively embed your vimrc into your tty'd SSH sessions with a native transfer mechanism.
 
 #### How does it work? 
 
