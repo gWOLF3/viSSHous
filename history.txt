@@ -1,0 +1,42 @@
+95  gs
+   96  git commit -m "init"
+   97  git push
+   98  cd ..
+   99  c
+  100  git clone https://github.com/gWOLF3/viSSHous.git
+  101  cd viSSHous/
+  102  c
+  103  sh local.sh
+  104  touch /Users/personal/.vimrc
+  105  cat ~/.vimrc
+  106  nano ~/.vimrc
+  107  c
+  108  cat ~/.vimrc
+  109  c
+  110  sh local.sh
+  111  sh local.sh
+  112  ssh aws remote.shj
+  113  c
+  114  ssh aws remote.sh
+  115  ls -la
+  116  cat remote.sh
+  117  cat ~/.ssh/config
+  118  c
+  119  ssh 3.19.158.104 < remote.sh
+  120  ssh -tt 3.19.158.104 < remote.sh
+  121  ssh -t -t 3.19.158.104 < remote.sh
+  122  ssh -T 3.19.158.104 < remote.sh
+  123  ssh -T ubuntu@3.19.158.104 < remote.sh
+  124  ssh ubuntu@3.19.158.104 < remote.sh
+  125  apt get update
+  126  apt update
+  127  c
+  128  sudo apt-get -y update
+  129  c
+  130  cat ~/.ssh/config
+  131  c
+  132  sudo apt-get -y update
+  133  gs
+  134  ls -la
+  135  touch history.txt
+  136  h
