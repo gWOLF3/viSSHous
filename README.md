@@ -7,8 +7,7 @@
 
 #### Requirements:
  
-- git must be installed on remote server
-- plugin manager (if you use one) must be installed manually
+- plugin manager (if you use one) must be installed manually on remote machine 
 
 #### Quickstart:
 
