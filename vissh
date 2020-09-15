@@ -6,9 +6,13 @@ if ! grep -qR "Include ~/.ssh/viSSHous" ~/.ssh/config
 fi
 OpenSSH-7.3
   
-# workaround until OpenSSH 7.3 is widely adopted
-if ! grep -qR 'alias ssh="ssh -F ~/.ssh/viSSHous"' ~/.bashrc
-  then echo 'alias ssh="ssh -F ~/.ssh/viSSHous"' >> ~/.bashrc && source ~/.bashrc
+# workaround until OpenSSH 7.3 is more widely adopted
+if ([ -f ~/.bashrc ] && ( ! grep -qR 'alias ssh="ssh -F ~/.ssh/viSSHous"' ~/.bashrc ));
+  then echo 'alias ssh="ssh -F ~/.ssh/viSSHous"' >> ~/.bashrc && bash
+fi
+
+if ([ -f ~/.zshrc ] && ( ! grep -qR 'alias ssh="ssh -F ~/.ssh/viSSHous"' ~/.zshrc ));
+  then echo 'alias ssh="ssh -F ~/.ssh/viSSHous"' >> ~/.zshrc && zsh
 fi 
 
 echo "# last updated: $(date)" > ~/.ssh/viSSHous
