@@ -1,4 +1,6 @@
 if [ ! -f $SNAP_REAL_HOME/.vimrc ]; then touch $SNAP_REAL_HOME/.vimrc; fi;
+echo "$SNAL_REAL_HOME/.vimrc";
+cat $SNAP_REAL_HOME/.vimrc;
 inotifywait -e modify $SNAP_REAL_HOME/.vimrc;
   
 if ([ -f $SNAP_REAL_HOME/.bashrc ] && ( ! grep -qR 'alias ssh="ssh -F $SNAP_REAL_HOME/.ssh/viSSHous"' $SNAP_REAL_HOME/.bashrc ));
