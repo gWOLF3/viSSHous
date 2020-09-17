@@ -1,0 +1,22 @@
+inotifywait -e modify -e create $HOME/.vimrc;
+
+<<OpenSSH-7.3
+if ! grep -qR "Include ~/.ssh/viSSHous" ~/.ssh/config
+  then echo 'Include ~/.ssh/viSSHous' >> ~/.ssh/config
+fi
+OpenSSH-7.3
+  
+# workaround until OpenSSH 7.3 is more widely adopted
+if ([ -f ~/.bashrc ] && ( ! grep -qR 'alias ssh="ssh -F ~/.ssh/viSSHous"' ~/.bashrc ));
+  then echo 'alias ssh="ssh -F ~/.ssh/viSSHous"' >> ~/.bashrc && bash
+fi
+
+if ([ -f ~/.zshrc ] && ( ! grep -qR 'alias ssh="ssh -F ~/.ssh/viSSHous"' ~/.zshrc ));
+  then echo 'alias ssh="ssh -F ~/.ssh/viSSHous"' >> ~/.zshrc && zsh
+fi 
+
+echo "# last updated: $(date)" > ~/.ssh/viSSHous
+echo 'Include ~/.ssh/config' >> ~/.ssh/viSSHous
+echo "SetEnv LC_MONETARY=$(cat ~/.vimrc | base64)" >> ~/.ssh/viSSHous
+echo 'RemoteCommand mkdir -p ~/.vim; echo $LC_MONETARY > ~/.vim/visshnu; base64 --decode ~/.vim/visshnu > ~/.vimrc; echo "😈 [LOG] VimRC was configured successfully"; if ( ! command -v vim &> /dev/null ); then echo "👿 [WARN] Vim not found"; sudo apt-get install vim -y &> /dev/null; if [ $? != 0 ]; then echo "👿 [WARN] Vim could not be auto-installed. Try manually with \`sudo apt-get install vim -y \`"; else echo "😈 [RESOLVED] Vim was auto-installed successfully"; fi; fi; if ( grep -qR "plug#begin" ~/.vimrc); then set vimplug=true; echo "😈 [LOG] Plugin manager detected: Vim-Plug"; fi; if ( grep -qR "plugin#begin" ~/.vimrc); then set vundle=true; echo "😈 Plugin manager detected: Vundle"; fi; if ([ -z $vimplug ] && [ ! -f ~/.vim/autoload/plug.vim ]); then curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim; if [ $? == 0 ]; then echo "😈 [LOG] Vim-Plug was auto-installed successfully"; fi; fi; if (( [ -z $vimplug ] || [ -z $vundle ]) && ( ! command -v git &> /dev/null )); then echo "👿 [WARN] Git not detected, but required by plugin manager."; sudo apt-get install git -y &> /dev/null; if [ $? != 0 ]; then echo "👿 [WARN] Git could not be auto-installed. Try manually with \`sudo apt-get install git\`"; else echo "😈 [RESOLVED] Git was auto-installed successfully"; fi; fi; if ( [ -z $vimplug ] && [ -f ~/.vim/autoload/plug.vim ] ) ; then echo "😈 [LOG] Installing/updating plugins with Vim-Plug"; yes | vim -c ":PlugInstall | quit! | quit!" &> /dev/null; fi; echo "😈 [LOG] viSSHous setup complete"; bash' >> ~/.ssh/viSSHous
+echo "RequestTTY yes" >> ~/.ssh/viSSHous
