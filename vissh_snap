@@ -4,11 +4,11 @@ if [ ! -f $REAL_HOME/.vimrc ]; then touch $REAL_HOME/.vimrc; fi;
 inotifywait -e modify $REAL_HOME/.vimrc;
   
 if ([ -f $REAL_HOME/.bashrc ] && ( ! grep -qR 'alias ssh="ssh -F $REAL_HOME/.ssh/viSSHous"' $REAL_HOME/.bashrc ));
-  then echo 'alias ssh="ssh -F $REAL_HOME/.ssh/viSSHous"' >> $REAL_HOME/.bashrc && bash
+  then echo 'alias ssh="ssh -F $HOME/.ssh/viSSHous"' >> $REAL_HOME/.bashrc && bash
 fi
 
 if ([ -f $REAL_HOME/.zshrc ] && ( ! grep -qR 'alias ssh="ssh -F $REAL_HOME/.ssh/viSSHous"' $REAL_HOME/.zshrc ));
-  then echo 'alias ssh="ssh -F $REAL_HOME/.ssh/viSSHous"' >> $REAL_HOME/.zshrc && zsh
+  then echo 'alias ssh="ssh -F $HOME/.ssh/viSSHous"' >> $REAL_HOME/.zshrc && zsh
 fi 
 
 echo "# last updated: $(date)" > $REAL_HOME/.ssh/viSSHous
