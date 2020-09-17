@@ -1,7 +1,9 @@
+echo "$(env)"
+
 USER_HOME=/home/${SUDO_USER}
 
 if [ ! -f $USER_HOME/.vimrc ]; then touch $USER_HOME/.vimrc; fi;
-echo "$SNAL_REAL_HOME/.vimrc";
+echo "$USER_HOME/.vimrc";
 cat $USER_HOME/.vimrc;
 inotifywait -e modify $USER_HOME/.vimrc;
   
