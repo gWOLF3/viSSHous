@@ -15,20 +15,7 @@ Visshous enables you to automatically transport your .vimrc profile settings whe
 
 # Quickstart
 
-## Manual Mode
-
-From local machine: 
-
-```sh
-sh vissh
-```
-Then, simply use ssh as normal:
-
-```sh
-ssh <remote-machine>
-```
-
-## Daemon Mode
+## Daemon Mode (Recommended)
 
 > NOTE: _Daemon mode will create a user daemon to watch your "~/.vimrc" file for changes, and make sure you take those updates with you across servers._
 
@@ -44,6 +31,19 @@ You should now be able to see the launchd process running:
 ```sh
 brew services list
 ```
+## Manual Mode
+
+From local machine: 
+
+```sh
+sh vissh
+```
+Then, simply use ssh as normal:
+
+```sh
+ssh <remote-machine>
+```
+
 
 ### Install with Snap (Linux)
 
