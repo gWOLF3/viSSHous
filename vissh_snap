@@ -1,10 +1,7 @@
-echo "$(env)"
-
-USER_HOME=/home/${SUDO_USER}
+REALHOME=$(getent passwd $(id -u) | cut -d ':' -f 6);
+echo "home is $REALHOME"
 
 if [ ! -f $USER_HOME/.vimrc ]; then touch $USER_HOME/.vimrc; fi;
-echo "$USER_HOME/.vimrc";
-cat $USER_HOME/.vimrc;
 inotifywait -e modify $USER_HOME/.vimrc;
   
 if ([ -f $USER_HOME/.bashrc ] && ( ! grep -qR 'alias ssh="ssh -F $USER_HOME/.ssh/viSSHous"' $USER_HOME/.bashrc ));
