@@ -31,6 +31,11 @@ You should now be able to see the launchd process running:
 ```sh
 brew services list
 ```
+
+### Install with Snap (Linux)
+
+_COMING SOON: AWAITING APPROVAL FROM SNAP STORE_
+
 ## Manual Mode
 
 From local machine: 
@@ -43,12 +48,6 @@ Then, simply use ssh as normal:
 ```sh
 ssh <remote-machine>
 ```
-
-
-### Install with Snap (Linux)
-
-_COMING SOON: AWAITING APPROVAL FROM SNAP STORE_
-
 
 # How it Works
 
