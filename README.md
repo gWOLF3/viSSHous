@@ -41,7 +41,7 @@ _COMING SOON: AWAITING APPROVAL FROM SNAP STORE_
 From local machine: 
 
 ```sh
-git clone git@github.com:gWOLF3/viSSHous.git
+git clone https://github.com/gWOLF3/viSSHous.git
 cd visshous && chmod +x vissh
 source ./vissh
 ```
