@@ -41,7 +41,9 @@ _COMING SOON: AWAITING APPROVAL FROM SNAP STORE_
 From local machine: 
 
 ```sh
-sh vissh
+git clone git@github.com:gWOLF3/viSSHous.git
+cd visshous && chmod +x vissh
+source ./vissh
 ```
 Then, simply use ssh as normal:
 
@@ -57,8 +59,18 @@ __At its core, Visshous takes advantage of standard but mostly unused standard s
 
 Once we're on the host, we decode our remote vimrc from that env variable and unpack/install any extra steps automatically with a RemoteCommand (also natively passed through ssh config). Because this solution passes the configuration in an 'ssh-native' way, it removes the need to take any extra steps. 
 
+# Support
 
-## Tested On: 
+## Shell Interpreters
+- [X] Bash
+- [X] Zsh
+
+## Plugin Managers
+- [X] Vim-Plug (first class support with autoloading)
+- [X] Vundle (detection but not autoloading, will be added soon)
+
+## Operating Systems
 - [X] Debian 
 - [X] Ubuntu
 - [X] MacOS
+
