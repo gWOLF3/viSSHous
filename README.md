@@ -51,16 +51,14 @@ ssh <remote-machine>
 
 # How it Works
 
+## An SSH-native "push" model
+
 __At its core, Visshous takes advantage of standard but mostly unused standard sshd configuration variables to pass and install your vimrc/plugins without having to configure extra settings__ ('sshd' by default allows 'locale config' variables - see `man locale` if you're curious- to be passed on through a remote host). Therefore, we simply base64 encode our local .vimrc file, and pass that in through the ssh protocol itself as an env variable. 
 
 Once we're on the host, we decode our remote vimrc from that env variable and unpack/install any extra steps automatically with a RemoteCommand (also natively passed through ssh config). Because this solution passes the configuration in an 'ssh-native' way, it removes the need to take any extra steps. 
 
-#### What's Next? 
-- [X] Apt packager distribution for systemd user daemon (Linux)
-- [X] Consider auto installing vim package manager on remote
 
-
-#### Tested On:
-- [X] Debian
+## Tested On: 
+- [X] Debian 
 - [X] Ubuntu
-- [X] Mac
+- [X] MacOS
